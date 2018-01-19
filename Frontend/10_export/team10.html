@@ -394,10 +394,33 @@
 						startActionsArray = [] 
                                                 for(startAction in this.db.eightStart.startActions){
 							startActionsArray.push([{text: "Ενέργεια: " + this.db.eightStart.startActions[startAction].name},
-											{text: "Κόστος Ενέργειας: " + this.db.eightStart.startActions[startAction].actionCost},
-											{text: "Συνολικό Κόστος: " + this.db.eightStart.startActions[startAction].actionsTotalCost}, " "])
+											{text: "Κόστος Ενέργειας: " + this.db.eightStart.startActions[startAction].actionCost}, " "])
 						}
 						return startActionsArray	
+					},
+                                        sevenTwoFunctionFun() { 
+						startFunctionsArray = [] 
+                                                for(startFunction in this.db.eightFunction.startFunctions){
+							startFunctionsArray.push([{text: "Ενέργεια: " + this.db.eightFunction.startFunctions[startFunction].name},
+											{text: "Κόστος Λειτουργίας: " + this.db.eightFunction.startFunctions[startFunction].functionCost}, " "])
+						}
+						return startFunctionsArray	
+					},
+                                        sevenThreeDeadSpotFun() { 
+						dsListArray = [] 
+                                                for(dsList in this.db.eightDeadSpot.dsList){
+							dsListArray.push([{text: "Νεκρό σημείο: " + this.db.eightDeadSpot.dsList[dsList].deadSpot}, " "])
+						}
+						return dsListArray	
+					},
+                                        nineLinksFun() { 
+						linkListArray = [] 
+                                                for(linkList in this.db.nineLinks.linkList){
+							linkListArray.push([{text: "URL: " + this.db.nineLinks.linkList[linkList].URL},
+											{text: "Ενέργεια: " + this.db.nineLinks.linkList[linkList].title},
+											{text: "Τμήμα: " + this.db.nineLinks.linkList[linkList].section}, " "])
+						}
+						return linkListArray	
 					},
 					// YOUR FUNCTION HERE, with commas in between the functions
 
@@ -558,6 +581,34 @@
 								{text: "7.1 Εκκίνηση:", style: "subSectionHeader"},
 								" ",
 								{ol: this.sevenOneStartFun()},
+                                                                {text: "Συνολικό κόστος εκκίνησης: " + String(db.eightStart.actionsTotalCost) + "€", bold: true},
+								" ",
+                                                                // Section 7.2	
+								{text: "7.2 Λειτουργία:", style: "subSectionHeader"},
+								" ",
+								{ol: this.sevenTwoFunctionFun()},
+                                                                {text: "Συνολικό κόστος λειτουργίας: " + String(db.eightFunction.functionsTotalCost) + "€", bold: true},
+								" ",
+                                                                // Section 7.3	
+								{text: "7.3 Νεκρό σημείο:", style: "subSectionHeader"},
+								" ",
+								{ol: this.sevenThreeDeadSpotFun()},
+								" ",
+	 							" "," ",
+                                                                // Section 8
+								{text: "Χρονοδιάγραμμα", style: "sectionHeader"},
+								" ",
+	 							" "," ",
+                                                                // Section 9
+								{text: "Παράρτημα", style: "sectionHeader"},
+								" ",
+								{ol: this.nineLinksFun()},
+								" ",
+	 							" "," ",
+                                                                // Section 10
+								{text: "Σύνοψη", style: "sectionHeader"},
+								" ",
+								db.tenConclusion,
 	 							" "," ",
 	 							// YOUR CONTENT HERE, with commas between stuff as above
 								// Check here for help: http://pdfmake.org/#/gettingstarted , https://www.javascripting.com/view/pdfmake
