@@ -390,6 +390,15 @@
 						}
 						return marketingActionsArray	
 					},
+                                        sevenOneStartFun() { 
+						startActionsArray = [] 
+                                                for(startAction in this.db.eightStart.startActions){
+							startActionsArray.push([{text: "Ενέργεια: " + this.db.eightStart.startActions[startAction].name},
+											{text: "Κόστος Ενέργειας: " + this.db.eightStart.startActions[startAction].actionCost},
+											{text: "Συνολικό Κόστος: " + this.db.eightStart.startActions[startAction].actionsTotalCost}, " "])
+						}
+						return startActionsArray	
+					},
 					// YOUR FUNCTION HERE, with commas in between the functions
 
 
@@ -541,6 +550,14 @@
 								{text: "6.2 Ενέργειες Marketing:", style: "subSectionHeader"},
 								" ", 
 								{ol: this.sixTwoMarketingFun()},
+	 							" "," ",
+                                                                // Section 7
+								{text: "Χρηματοοικονομικός Σχεδιασμός", style: "sectionHeader"},
+								" ",
+								// Section 7.1	
+								{text: "7.1 Εκκίνηση:", style: "subSectionHeader"},
+								" ",
+								{ol: this.sevenOneStartFun()},
 	 							" "," ",
 	 							// YOUR CONTENT HERE, with commas between stuff as above
 								// Check here for help: http://pdfmake.org/#/gettingstarted , https://www.javascripting.com/view/pdfmake
